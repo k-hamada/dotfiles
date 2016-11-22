@@ -1,5 +1,39 @@
 [user]
-	name = k-hamada
-	email = k.hamada.1988@gmail.com
+  name = k-hamada
+  email = k.hamada.1988@gmail.com
+
 [core]
-	editor = vim
+  editor = vim -c 'set fenc=utf-8'
+  excludesfile = ~/.gitignore
+  pager = less -r
+  precomposeunicode = true
+
+[color]
+  ui = auto
+
+[alias]
+  b    = branch
+  ci   = commit -v
+  cia  = commit -av
+  co   = checkout
+  cob  = checkout -b
+  d    = diff
+  l    = log
+  s    = status
+  st   = status
+
+  fix = commit --amend -C HEAD
+  po  = push origin
+  rbm = rebase master
+  up  = pull --rebase
+
+  gene = log --graph --pretty='%C(yellow)%h%Creset %s%C(yellow)%d%Creset' --all
+  glog = show-branch
+  ll   = log -p
+  lo   = log --oneline
+  ls   = log --stat
+
+  new  = log HEAD@{1}..HEAD --reverse
+  newd = diff HEAD@{1}..HEAD
+  newl = log HEAD@{1}..HEAD --reverse --oneline
+  newp = log HEAD@{1}..HEAD -p --reverse
