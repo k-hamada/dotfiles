@@ -1,1 +1,0 @@
-/Users/khamada/.zprezto/runcoms/zlogout

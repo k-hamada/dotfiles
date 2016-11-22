@@ -1,0 +1,23 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+fpath="$fpath:$HOME/cool-peco"
+autoload -Uz cool-peco
+cool-peco
+bindkey '^r' cool-peco-history
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - zsh)"
+export PATH="/usr/local/share/npm/bin:$PATH"
+
+alias r=rails
+alias g=git
+alias t=tig
