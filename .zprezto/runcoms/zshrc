@@ -9,11 +9,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-fpath="$fpath:$HOME/cool-peco"
-autoload -Uz cool-peco
-cool-peco
-bindkey '^r' cool-peco-history
-
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
