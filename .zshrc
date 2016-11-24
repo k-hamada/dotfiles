@@ -10,15 +10,11 @@ zplug "b4b4r07/enhancd"
 zplug "mollifier/anyframe"
 
 zplug "modules/environment", from:prezto
-zplug "modules/terminal", from:prezto
-zplug "modules/editor", from:prezto
 zplug "modules/history", from:prezto
-zplug "modules/directory", from:prezto
 zplug "modules/spectrum", from:prezto
 zplug "modules/utility", from:prezto
-zplug "modules/completion", from:prezto
 zplug "modules/git", from:prezto
-zplug "modules/prompt", from:prezto
+zplug "modules/rails", from:prezto
 
 zplug "frmendes/geometry"
 
