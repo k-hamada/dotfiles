@@ -9,6 +9,8 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 zplug "b4b4r07/enhancd"
 zplug "mollifier/anyframe"
 
+zplug "frmendes/geometry"
+
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
   if read -q; then
