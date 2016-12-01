@@ -18,22 +18,35 @@
   co   = checkout
   cob  = checkout -b
   d    = diff
-  l    = log
+  f    = fetch
   s    = status
   st   = status
 
-  fix = commit --amend -C HEAD
-  po  = push origin
+  fix   = commit --amend -C HEAD
+  amend = commit --amend --reuse-message=HEAD
+
+  po  = !git push origin `git rev-parse --abbrev-ref HEAD`
   rbm = rebase master
   up  = pull --rebase
 
   gene = log --graph --pretty='%C(yellow)%h%Creset %s%C(yellow)%d%Creset' --all
   glog = show-branch
-  ll   = log -p
+  l    = log --pretty=oneline -n 20 --graph --abbrev-commit
+  lp   = log -p
+  lp1  = log -p --max-count=1 
   lo   = log --oneline
+  lo1  = log --oneline --max-count=1 
   ls   = log --stat
+  ls1  = log --stat --max-count=1
 
   new  = log HEAD@{1}..HEAD --reverse
   newd = diff HEAD@{1}..HEAD
   newl = log HEAD@{1}..HEAD --reverse --oneline
   newp = log HEAD@{1}..HEAD -p --reverse
+
+[fetch]
+  prune = true
+
+[rebase]
+  autosquash = true
+
