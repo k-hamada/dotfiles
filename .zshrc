@@ -10,9 +10,12 @@ zplug "b4b4r07/enhancd"
 zplug "mollifier/anyframe"
 
 zplug "modules/environment", from:prezto
-zplug "modules/history", from:prezto
-zplug "modules/spectrum", from:prezto
 zplug "modules/utility", from:prezto
+zplug "modules/spectrum", from:prezto
+zplug "modules/syntax-highlighting", from:prezto, nice:10
+zplug "modules/terminal", from:prezto
+zplug "modules/history", from:prezto
+# zplug "modules/history-substring-search", from:prezto
 zplug "modules/git", from:prezto
 zplug "modules/rails", from:prezto
 
@@ -28,6 +31,9 @@ if ! zplug check --verbose; then
 fi
 zplug load --verbose
 
+zstyle ':prezto:module:terminal' auto-title 'yes'
+
+
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 bindkey '^b' anyframe-widget-cdr
@@ -42,3 +48,4 @@ alias g='git'
 alias t='tig'
 alias v='vim'
 alias be='bundle exec'
+
