@@ -33,9 +33,9 @@
   glog = show-branch
   l    = log --pretty=oneline -n 20 --graph --abbrev-commit
   lp   = log -p
-  lp1  = log -p --max-count=1 
+  lp1  = log -p --max-count=1
   lo   = log --oneline
-  lo1  = log --oneline --max-count=1 
+  lo1  = log --oneline --max-count=1
   ls   = log --stat
   ls1  = log --stat --max-count=1
 
