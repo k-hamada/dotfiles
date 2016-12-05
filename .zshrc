@@ -1,6 +1,7 @@
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
+export PATH="/usr/local/opt/macvim-kaoriya/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 export PATH="/usr/local/share/npm/bin:$PATH"
@@ -33,7 +34,6 @@ zplug load --verbose
 
 zstyle ':prezto:module:terminal' auto-title 'yes'
 
-
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 bindkey '^b' anyframe-widget-cdr
@@ -42,6 +42,8 @@ bindkey '^z' anyframe-widget-put-history
 bindkey '^e' anyframe-widget-execute-history
 bindkey '^g' anyframe-widget-checkout-git-branch
 
+export EDITOR='vim'
+export VISUAL='vim'
 
 alias r='rails'
 alias g='git'
