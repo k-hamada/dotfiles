@@ -50,3 +50,6 @@
 [rebase]
   autosquash = true
 
+[status]
+  showUntrackedFiles = no
+
