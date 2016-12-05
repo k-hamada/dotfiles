@@ -1,4 +1,5 @@
 tap 'caskroom/cask'
+tap 'caskroom/fonts'
 tap 'homebrew/bundle'
 tap 'homebrew/core'
 tap 'splhack/splhack'
@@ -42,6 +43,8 @@ brew 'splhack/splhack/cmigemo-mk', args: ['HEAD']
 brew 'splhack/splhack/macvim-kaoriya', args: ['HEAD']
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
 cask 'atom'
+cask 'font-monoid'
+cask 'font-source-han-code-jp'
 cask 'google-drive'
 cask 'iterm2'
 cask 'karabiner'
