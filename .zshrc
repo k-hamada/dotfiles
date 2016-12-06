@@ -39,7 +39,7 @@ add-zsh-hook chpwd chpwd_recent_dirs
 bindkey '^b' anyframe-widget-cdr
 bindkey '^r' anyframe-widget-put-history
 bindkey '^z' anyframe-widget-put-history
-bindkey '^e' anyframe-widget-execute-history
+bindkey '^R' anyframe-widget-execute-history
 bindkey '^g' anyframe-widget-checkout-git-branch
 
 export EDITOR='vim'
@@ -47,6 +47,7 @@ export VISUAL='vim'
 
 alias r='rails'
 alias g='git'
+alias s='git status'
 alias t='tig'
 alias v='vim'
 alias be='bundle exec'
