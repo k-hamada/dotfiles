@@ -12,6 +12,8 @@
   ui = auto
 
 [alias]
+  adp  = !git add -p && git st
+  adu  = !git add -u && git st
   b    = branch
   ci   = commit -v
   cia  = commit -av
@@ -43,6 +45,8 @@
   newd = diff HEAD@{1}..HEAD
   newl = log HEAD@{1}..HEAD --reverse --oneline
   newp = log HEAD@{1}..HEAD -p --reverse
+
+  cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
 
 [fetch]
   prune = true
