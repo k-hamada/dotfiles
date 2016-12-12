@@ -47,6 +47,7 @@
   newp = log HEAD@{1}..HEAD -p --reverse
 
   cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
+  aliases = !git config --get-regexp alias | grep -v aliases | sed 's/^alias.//g' | sed 's/ / = /1' | sort
 
 [fetch]
   prune = true
@@ -57,3 +58,9 @@
 [status]
   showUntrackedFiles = no
 
+[url "git@github.com:"]
+  pushInsteadOf = git://github.com/
+  pushInsteadOf = https://github.com/
+
+[url "git://github.com/"]
+  insteadOf = https://github.com/
