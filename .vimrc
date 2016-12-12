@@ -52,6 +52,8 @@ call dein#begin(s:plugin_dir)
   call dein#add('emonkak/vim-operator-sort',      {'depdens': ['kana/vim-operator-user']})
   call dein#add('haya14busa/vim-operator-flashy', {'depdens': ['kana/vim-operator-user']})
 
+  call dein#add('ShaderHighLight')
+
   call dein#add('tyru/restart.vim')
   call dein#add('tpope/vim-repeat')
 
