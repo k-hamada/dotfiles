@@ -39,7 +39,7 @@ add-zsh-hook chpwd chpwd_recent_dirs
 bindkey '^b' anyframe-widget-cdr
 bindkey '^r' anyframe-widget-put-history
 bindkey '^z' anyframe-widget-put-history
-bindkey '^R' anyframe-widget-execute-history
+# bindkey '^R' anyframe-widget-execute-history
 bindkey '^g' anyframe-widget-checkout-git-branch
 
 export EDITOR='vim'
