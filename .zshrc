@@ -34,6 +34,26 @@ zplug load --verbose
 
 zstyle ':prezto:module:terminal' auto-title 'yes'
 
+# http://www.tellme.tokyo/entry/2016/12/20/110000
+do_enter() {
+    if [[ -n $BUFFER ]]; then
+        zle accept-line
+        return $status
+    fi
+
+    echo
+    if [[ -d .git ]]; then
+        if [[ -n "$(git status --short)" ]]; then
+            git status
+        fi
+    else
+        # do nothing
+        :
+    fi
+
+    zle reset-prompt
+}
+
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 bindkey '^b' anyframe-widget-cdr
@@ -41,6 +61,8 @@ bindkey '^r' anyframe-widget-put-history
 bindkey '^z' anyframe-widget-put-history
 # bindkey '^R' anyframe-widget-execute-history
 bindkey '^g' anyframe-widget-checkout-git-branch
+zle -N do_enter
+bindkey '^m' do_enter
 
 export EDITOR='vim'
 export VISUAL='vim'
