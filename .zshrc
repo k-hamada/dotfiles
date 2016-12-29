@@ -51,4 +51,4 @@ alias s='git status'
 alias t='tig'
 alias v='vim'
 alias be='bundle exec'
-
+alias re='rbenv exec'
