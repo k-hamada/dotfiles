@@ -56,7 +56,7 @@
   autosquash = true
 
 [status]
-  showUntrackedFiles = no
+  # showUntrackedFiles = no
 
 [url "git@github.com:"]
   pushInsteadOf = git://github.com/
