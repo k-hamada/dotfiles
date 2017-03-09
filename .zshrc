@@ -73,3 +73,6 @@ alias t='tig'
 alias v='vim'
 alias be='bundle exec'
 alias re='rbenv exec'
+
+GEOMETRY_PROMPT_PLUGINS=(exec_time git)
+
