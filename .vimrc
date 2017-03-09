@@ -59,6 +59,8 @@ call dein#begin(s:plugin_dir)
 
   call dein#add('Yggdroot/indentLine')
   call dein#add('itchyny/lightline.vim')
+
+  call dein#add('plasticboy/vim-markdown')
 call dein#end()
 
 
