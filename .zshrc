@@ -13,12 +13,11 @@ zplug "mollifier/anyframe"
 zplug "modules/environment", from:prezto
 zplug "modules/utility", from:prezto
 zplug "modules/spectrum", from:prezto
-# zplug "modules/syntax-highlighting", from:prezto, defer:2
 zplug "modules/terminal", from:prezto
 zplug "modules/history", from:prezto
-zplug "modules/history-substring-search", from:prezto
 zplug "modules/git", from:prezto
 zplug "modules/rails", from:prezto
+zplug "zsh-users/zsh-autosuggestions"
 
 zplug "frmendes/geometry"
 
