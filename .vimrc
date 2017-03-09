@@ -1179,5 +1179,7 @@ if executable("rg")
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
+autocmd MyAutoCmd BufRead, BufEnter *.contract setf ruby
+
 filetype plugin indent on
 syntax enable
