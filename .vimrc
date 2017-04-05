@@ -31,6 +31,7 @@ call dein#begin(s:plugin_dir)
   endif
 
   call dein#add('tyru/caw.vim')
+  call dein#add('h1mesuke/vim-alignta')
 
   call dein#add('kana/vim-smartword')
   call dein#add('rhysd/clever-f.vim')
@@ -52,13 +53,15 @@ call dein#begin(s:plugin_dir)
   call dein#add('emonkak/vim-operator-sort',      {'depdens': ['kana/vim-operator-user']})
   call dein#add('haya14busa/vim-operator-flashy', {'depdens': ['kana/vim-operator-user']})
 
-  call dein#add('ShaderHighLight')
+  " call dein#add('ShaderHighLight')
 
   call dein#add('tyru/restart.vim')
   call dein#add('tpope/vim-repeat')
 
   call dein#add('Yggdroot/indentLine')
   call dein#add('itchyny/lightline.vim')
+
+  call dein#add('plasticboy/vim-markdown')
 call dein#end()
 
 
@@ -1176,6 +1179,8 @@ if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
+
+autocmd MyAutoCmd BufRead, BufEnter *.contract setf ruby
 
 filetype plugin indent on
 syntax enable
