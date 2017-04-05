@@ -31,6 +31,7 @@ call dein#begin(s:plugin_dir)
   endif
 
   call dein#add('tyru/caw.vim')
+  call dein#add('h1mesuke/vim-alignta')
 
   call dein#add('kana/vim-smartword')
   call dein#add('rhysd/clever-f.vim')
