@@ -62,6 +62,7 @@ call dein#begin(s:plugin_dir)
   call dein#add('itchyny/lightline.vim')
 
   call dein#add('plasticboy/vim-markdown')
+  call dein#add('OrangeT/vim-csharp')
 call dein#end()
 
 
@@ -84,6 +85,7 @@ if has('persistent_undo')
   let &undodir = s:dot_vim_dir . '/.undo' " TODO: path, mkdir
 endif
 set visualbell
+set viminfo='5,<1000,s100,:100,/10
 
 " Edit
 set tabstop=2
@@ -360,12 +362,12 @@ if dein#tap('neocomplete.vim')
 
   " Plugin key-mappings.
   " <CR>: close popup and save indent.
-  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-  function! s:my_cr_function()
-    " return neocomplete#close_popup() . "\<CR>"
-    " For no inserting <CR> key.
-    return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-  endfunction
+  " inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  " function! s:my_cr_function()
+  "   " return neocomplete#close_popup() . "\<CR>"
+  "   " For no inserting <CR> key.
+  "   return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  " endfunction
   " <TAB>: completion.
   inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
   inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
@@ -387,7 +389,7 @@ if dein#tap('neocomplete.vim')
   if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
   endif
-  let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+  " let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 endif
 
 if dein#tap('skk.vim')
@@ -1180,7 +1182,7 @@ if executable("rg")
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
-autocmd MyAutoCmd BufRead, BufEnter *.contract setf ruby
+autocmd MyAutoCmd BufRead,BufEnter,BufNewFile *.contract setfiletype ruby
 
 filetype plugin indent on
 syntax enable
