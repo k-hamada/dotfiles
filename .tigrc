@@ -1,0 +1,44 @@
+# utf-8 文字で画面描画する (~でトグル)
+set line-graphics = utf-8
+
+# マウスを有効にする
+# set mouse = true
+
+set main-view = id date author commit-title:graph=yes,refs=yes
+
+set vertical-split = no
+set horizontal-scroll = 33%
+set split-view-height = 80%
+
+bind generic g move-first-line
+bind main    G none
+bind main    G move-last-line
+bind generic G move-last-line
+
+
+# n / p を上下移動に割り当て (default: find-next / view-pager)
+bind generic n      move-down
+bind generic p      move-up
+
+# n / p で単位ごとの移動
+bind diff    n      :/^@@
+bind diff    p      :?^@@
+bind diff    <Esc>n :/^diff --(git|cc)
+bind diff    <Esc>p :?^diff --(git|cc)
+bind stage   n      :/^@@
+bind stage   p      :?^@@
+bind stage   <Esc>n :/^diff --(git|cc)
+bind stage   <Esc>p :?^diff --(git|cc)
+bind pager   n      :/^@@
+bind pager   p      :?^@@
+bind pager   <Esc>n :/^diff --(git|cc)
+bind pager   <Esc>p :?^diff --(git|cc)
+bind log     n      :/^commit
+bind log     p      :?^commit
+
+# I で rebase -i
+bind main    I      ?git rebase -i %(branch)
+bind diff    I      ?git rebase -i %(branch)
+bind refs    I      ?git rebase -i %(branch)
+bind main    <Esc>i ?git rebase -i %(commit)
+bind diff    <Esc>i ?git rebase -i %(commit)
