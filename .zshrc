@@ -81,6 +81,9 @@ alias v='mvim -v'
 alias be='bundle exec'
 alias re='rbenv exec'
 
+alias reload='exec zsh -l'
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
 GEOMETRY_PROMPT_PLUGINS=(exec_time git)
 
 eval $(/usr/libexec/path_helper -s)
