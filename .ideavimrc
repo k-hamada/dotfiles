@@ -1,0 +1,48 @@
+" 検索結果をハイライト
+set hlsearch
+" 検索時に大文字小文字をを区別しない
+set ignorecase
+"検索で大文字があるときは区別
+set smartcase
+nnoremap <ESC><ESC> :nohlsearch<CR><ESC>
+nnoremap * :<C-u>set hlsearch<Return>*
+nnoremap # :<C-u>set hlsearch<Return>#
+"Insertモードを抜けたら日本語入力OFF
+inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+
+"Vimからクリップボードにもコピー
+set clipboard=unnamed
+" Yank to end of line
+nnoremap Y y$
+
+"削除でレジスタに格納しない
+nnoremap x "_x
+
+" ビープ音を鳴らさない
+set visualbell t_vb=
+set noerrorbells
+
+set surround
+
+" Line Scroll
+nnoremap j gj
+nnoremap gj j
+nnoremap k gk
+nnoremap gk k
+nnoremap 0 g0
+nnoremap g0 0
+nnoremap $ g$
+nnoremap g$ $
+" Center Scroll
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap g* g*zz
+nnoremap g# g#zz
+nnoremap G Gzz
+" nnoremap <Space> jzz
+" nnoremap <S-Space> kzz
+" vnoremap <Space> jzz
+" vnoremap <S-Space> kzz
+
+nnoremap gcc :action CommentByLineComment<cr>
+

@@ -50,7 +50,7 @@
   aliases = !git config --get-regexp alias | grep -v aliases | sed 's/^alias.//g' | sed 's/ / = /1' | sort
 
 [fetch]
-  prune = true
+#  prune = true
 
 [rebase]
   autosquash = true
@@ -64,3 +64,10 @@
 
 [url "git://github.com/"]
   insteadOf = https://github.com/
+[init]
+  templatedir = ~/.git_template
+
+[mergetool]
+  prompt = false
+  keepBackup = false
+

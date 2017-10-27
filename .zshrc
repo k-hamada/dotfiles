@@ -1,11 +1,17 @@
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
-export PATH="/usr/local/opt/macvim-kaoriya/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 export PATH="/usr/local/share/npm/bin:$PATH"
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH="/usr/local/opt/openssl/bin:$PATH"
 
+if [ -x "`which go`" ]; then
+    export GOPATH=$HOME/.go
+    export PATH=$PATH:$GOPATH/bin
+fi
 
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "mollifier/anyframe"
@@ -55,6 +61,7 @@ do_enter() {
 
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
+bindkey -e
 bindkey '^b' anyframe-widget-cdr
 bindkey '^r' anyframe-widget-put-history
 bindkey '^z' anyframe-widget-put-history
@@ -63,16 +70,28 @@ bindkey '^g' anyframe-widget-checkout-git-branch
 zle -N do_enter
 bindkey '^m' do_enter
 
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR='mvim -v'
+export VISUAL='mvim -v'
 
 alias r='rails'
 alias g='git'
 alias s='git status'
 alias t='tig'
-alias v='vim'
+alias v='mvim -v'
 alias be='bundle exec'
 alias re='rbenv exec'
 
+alias reload='exec zsh -l'
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
 GEOMETRY_PROMPT_PLUGINS=(exec_time git)
+
+eval $(/usr/libexec/path_helper -s)
+
+export HISTSIZE=100000
+export SAVEHIST=100000
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_verify
+setopt hist_reduce_blanks
 
