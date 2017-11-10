@@ -13,7 +13,9 @@ if [ -x "`which go`" ]; then
     export PATH=$PATH:$GOPATH/bin
 fi
 
-zplug "b4b4r07/enhancd", use:init.sh
+eval $(/usr/libexec/path_helper -s)
+
+zplug "b4b4r07/enhancd", use:'init.sh'
 zplug "mollifier/anyframe"
 
 zplug "modules/environment", from:prezto
@@ -85,8 +87,6 @@ alias reload='exec zsh -l'
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 GEOMETRY_PROMPT_PLUGINS=(exec_time git)
-
-eval $(/usr/libexec/path_helper -s)
 
 export HISTSIZE=100000
 export SAVEHIST=100000
