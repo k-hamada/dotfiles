@@ -28,6 +28,11 @@ zplug "modules/git", from:prezto
 zplug "modules/rails", from:prezto
 zplug "zsh-users/zsh-autosuggestions"
 
+GEOMETRY_SYMBOL_PROMPT="*'-'ﾉ"
+GEOMETRY_SYMBOL_EXIT_VALUE='*;-;ﾉ'
+GEOMETRY_SYMBOL_RPROMPT="< "
+PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
+GEOMETRY_PROMPT_PLUGINS=(exec_time git)
 zplug "frmendes/geometry"
 
 if ! zplug check --verbose; then
@@ -92,8 +97,6 @@ alias re='rbenv exec'
 
 alias reload='exec zsh -l'
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
-GEOMETRY_PROMPT_PLUGINS=(exec_time git)
 
 export HISTSIZE=10000000
 export SAVEHIST=10000000
