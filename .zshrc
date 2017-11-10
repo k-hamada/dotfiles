@@ -15,6 +15,7 @@ fi
 
 eval $(/usr/libexec/path_helper -s)
 
+zplug 'supercrabtree/k', use:'!*'
 zplug "b4b4r07/enhancd", use:'init.sh'
 zplug "mollifier/anyframe"
 
@@ -59,6 +60,12 @@ do_enter() {
     fi
 
     zle reset-prompt
+}
+
+k() {
+  unfunction k
+  . "${ZPLUG_REPOS}/supercrabtree/k/k.sh"
+  k "$@"
 }
 
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
