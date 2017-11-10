@@ -35,7 +35,8 @@ call dein#begin(s:plugin_dir)
 
   call dein#add('kana/vim-smartword')
   call dein#add('rhysd/clever-f.vim')
-  call dein#add('haya14busa/incsearch.vim')
+  call dein#add('haya14busa/is.vim')
+  call dein#add('osyo-manga/vim-anzu')
 
   call dein#add('kana/vim-textobj-user')
   call dein#add('kana/vim-textobj-datetime',  {'depdens': ['kana/vim-textobj-user']})
@@ -99,6 +100,9 @@ set smarttab
 set showmatch
 set whichwrap=b,s,h,l,<,>,[,]
 set fileencodings=ucs-bom,utf-8,euc-jp,cp932,iso-2022-jp
+
+set incsearch
+set hlsearch
 
 
 " Input
@@ -1175,6 +1179,15 @@ endif
 
 if dein#tap('indentLine')
   let g:indentLine_faster = 1
+endif
+
+if dein#tap('vim-anzu') && dein#tap('is.vim')
+  map n <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
+  map N <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
+  nmap * <Plug>(anzu-star-with-echo)
+  nmap # <Plug>(anzu-sharp-with-echo)
+  nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+  set statusline=%{anzu#search_status()}
 endif
 
 if executable("rg")
