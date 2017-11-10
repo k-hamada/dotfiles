@@ -95,8 +95,8 @@ alias reload='exec zsh -l'
 
 GEOMETRY_PROMPT_PLUGINS=(exec_time git)
 
-export HISTSIZE=100000
-export SAVEHIST=100000
+export HISTSIZE=10000000
+export SAVEHIST=10000000
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 setopt hist_verify
