@@ -25,7 +25,7 @@ zplug "modules/spectrum", from:prezto
 zplug "modules/terminal", from:prezto
 zplug "modules/history", from:prezto
 zplug "modules/git", from:prezto
-zplug "modules/rails", from:prezto
+# zplug "modules/rails", from:prezto
 zplug "zsh-users/zsh-autosuggestions"
 
 GEOMETRY_SYMBOL_PROMPT="*'-'ﾉ"
@@ -35,14 +35,14 @@ PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
 GEOMETRY_PROMPT_PLUGINS=(exec_time git)
 zplug "frmendes/geometry"
 
-if ! zplug check --verbose; then
-  printf "Install? [y/N]: "
-  if read -q; then
-    echo; zplug install
-  else
-    echo
-  fi
-fi
+# if ! zplug check --verbose; then
+#   printf "Install? [y/N]: "
+#   if read -q; then
+#     echo; zplug install
+#   else
+#     echo
+#   fi
+# fi
 zplug load --verbose
 
 zstyle ':prezto:module:terminal' auto-title 'yes'
