@@ -18,6 +18,7 @@ eval $(/usr/libexec/path_helper -s)
 zplug 'supercrabtree/k', use:'!*'
 zplug "b4b4r07/enhancd", use:'init.sh'
 zplug "mollifier/anyframe"
+zplug "marzocchi/zsh-notify"
 
 zplug "modules/environment", from:prezto
 zplug "modules/utility", from:prezto
