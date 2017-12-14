@@ -7,6 +7,7 @@ eval "$(rbenv init - zsh)"
 export PATH="/usr/local/share/npm/bin:$PATH"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/Library/Frameworks/Mono.framework/Versions/Current/bin:$PATH"
 
 if [ -x "`which go`" ]; then
     export GOPATH=$HOME/.go
