@@ -15,7 +15,6 @@ bind main    G none
 bind main    G move-last-line
 bind generic G move-last-line
 
-
 # n / p を上下移動に割り当て (default: find-next / view-pager)
 bind generic n      move-down
 bind generic p      move-up
@@ -42,3 +41,16 @@ bind diff    I      ?git rebase -i %(branch)
 bind refs    I      ?git rebase -i %(branch)
 bind main    <Esc>i ?git rebase -i %(commit)
 bind diff    <Esc>i ?git rebase -i %(commit)
+
+# B で ブラウザで表示
+# http://www.yasuhisay.info/entry/2017/10/31/083000
+bind main B !@hub browse -- commit/%(commit)
+bind diff B !@hub browse -- commit/%(commit)
+bind tree B !@hub browse -- tree/%(commit)/%(directory)
+bind blob B !@hub browse -- tree/%(commit)/%(file)
+
+# = で checkout
+#bind main    = ?git checkout %(branch)
+#bind refs    = ?git checkout %(branch)
+bind main    = ?git checkout %(commit)
+
