@@ -20,6 +20,7 @@ call dein#begin(s:plugin_dir)
   call dein#add('Shougo/dein.vim')
 
   call dein#add('w0ng/vim-hybrid')
+  call dein#add('cocopon/lightline-hybrid.vim')
 
   call dein#add('Shougo/unite.vim')
   call dein#add('Shougo/neomru.vim',        {'depdens': ['unite.vim']})
@@ -32,6 +33,7 @@ call dein#begin(s:plugin_dir)
 
   call dein#add('tyru/caw.vim')
   call dein#add('h1mesuke/vim-alignta')
+  call dein#add('tpope/vim-abolish')
 
   call dein#add('kana/vim-smartword')
   call dein#add('rhysd/clever-f.vim')
@@ -53,8 +55,7 @@ call dein#begin(s:plugin_dir)
   call dein#add('rhysd/vim-operator-surround',    {'depdens': ['kana/vim-operator-user']})
   call dein#add('emonkak/vim-operator-sort',      {'depdens': ['kana/vim-operator-user']})
   call dein#add('haya14busa/vim-operator-flashy', {'depdens': ['kana/vim-operator-user']})
-
-  " call dein#add('ShaderHighLight')
+  call dein#add('tyru/operator-camelize.vim',      {'depdens': ['kana/vim-operator-user']})
 
   call dein#add('tyru/restart.vim')
   call dein#add('tpope/vim-repeat')
@@ -63,7 +64,10 @@ call dein#begin(s:plugin_dir)
   call dein#add('itchyny/lightline.vim')
 
   call dein#add('plasticboy/vim-markdown')
-  call dein#add('OrangeT/vim-csharp')
+  "call dein#add('OrangeT/vim-csharp')
+  call dein#add('hotwatermorning/auto-git-diff')
+
+  call dein#add('cocopon/vaffle.vim')
 call dein#end()
 
 
@@ -164,9 +168,9 @@ vnoremap <Space> jzz
 vnoremap <S-Space> kzz
 
 " nohlsearch
-nnoremap <Esc><Esc> :nohlsearch<Return>
-nnoremap * :<C-u>set hlsearch<Return>*
-nnoremap # :<C-u>set hlsearch<Return>#
+" nnoremap <Esc><Esc> :nohlsearch<Return>
+" nnoremap * :<C-u>set hlsearch<Return>*
+" nnoremap # :<C-u>set hlsearch<Return>#
 
 " Search Input Escape
 cnoremap <expr> /  getcmdtype() == '/' ? '\/' : '/'
@@ -1169,6 +1173,9 @@ endif
 
 if dein#tap('lightline.vim')
   let g:unite_force_overwrite_statusline = 0
+  let g:lightline = {}
+  let g:lightline.colorscheme = 'hybrid'
+  let g:lightline_hybrid_style = 'plain'
 endif
 
 if dein#tap('incsearch.vim')
