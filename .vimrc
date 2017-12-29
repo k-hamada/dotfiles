@@ -1229,5 +1229,18 @@ endif
 
 autocmd MyAutoCmd BufRead,BufEnter,BufNewFile *.contract setfiletype ruby
 
+command! -nargs=0 Memo call s:open_memo_file()
+function! s:open_memo_file()
+  let l:memo_dir = $HOME . '/Desktop/memo'. strftime('/%Y/%m')
+  if !isdirectory(l:memo_dir)
+    call mkdir(l:memo_dir, 'p')
+  endif
+
+  let l:filename = input('Filename: ', l:memo_dir.strftime('/%Y-%m-%d-%H-%M.md'))
+  if l:filename != ''
+    execute 'edit ' . l:filename
+  endif
+endfunction
+
 filetype plugin indent on
 syntax enable
