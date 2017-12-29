@@ -1176,6 +1176,31 @@ if dein#tap('lightline.vim')
   let g:lightline = {}
   let g:lightline.colorscheme = 'hybrid'
   let g:lightline_hybrid_style = 'plain'
+  let g:lightline.active = {}
+  let g:lightline.active.left = [
+        \ ['mode', 'paste'],
+        \ ['filename', 'readonly', 'modified']
+        \ ]
+  let g:lightline.active.right = [
+        \ ['percent', 'lineinfo'],
+        \ ['filetype', 'fileencoding', 'fileformat']
+        \ ]
+  let g:lightline.component_function = {
+        \ 'fileformat': 'MyFileFormat',
+        \ 'fileencoding': 'MyFileEncoding',
+        \ }
+
+  function! MyFileFormat()
+    return {
+          \ 'unix': '\n',
+          \ 'dos': '\r\n',
+          \ 'mac': '\r',
+          \ }[&ff]
+  endfunction
+
+  function! MyFileEncoding()
+    return (&fenc == '' ? &enc : &fenc) . (&bomb ? '+bomb' : '')
+  endfunction
 endif
 
 if dein#tap('incsearch.vim')
