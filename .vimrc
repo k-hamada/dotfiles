@@ -19,8 +19,12 @@ endif
 call dein#begin(s:plugin_dir)
   call dein#add('Shougo/dein.vim')
 
-  call dein#add('w0ng/vim-hybrid')
+  " call dein#add('w0ng/vim-hybrid')
+  call dein#add('rhysd/vim-color-spring-night')
   call dein#add('cocopon/lightline-hybrid.vim')
+
+  call dein#add('/usr/local/opt/fzf')
+  call dein#add('junegunn/fzf.vim')
 
   call dein#add('Shougo/unite.vim')
   call dein#add('Shougo/neomru.vim',        {'depdens': ['unite.vim']})
@@ -68,6 +72,11 @@ call dein#begin(s:plugin_dir)
   call dein#add('hotwatermorning/auto-git-diff')
 
   call dein#add('cocopon/vaffle.vim')
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('sheerun/vim-polyglot')
+  call dein#add('w0rp/ale')
+  call dein#add('tpope/vim-sleuth')
+  call dein#add('cocopon/iceberg.vim')
 call dein#end()
 
 
@@ -342,9 +351,15 @@ augroup END
 augroup ThemeInstall
     autocmd!
     autocmd VimEnter * nested set background=dark
-    autocmd VimEnter * nested colorscheme hybrid
+    " autocmd VimEnter * nested colorscheme hybrid
+    autocmd VimEnter * nested colorscheme spring-night
 augroup END
 
+if has('termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
 
 if dein#tap('clever-f.vim')
   " <http://rhysd.hatenablog.com/entry/2013/09/17/220837>
@@ -1225,6 +1240,14 @@ endif
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading
   set grepformat=%f:%l:%c:%m,%f:%l:%m
+
+  " Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+  command! -bang -nargs=* Rg
+    \ call fzf#vim#grep(
+    \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+    \   <bang>0 ? fzf#vim#with_preview('up:60%')
+    \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+    \   <bang>0)
 endif
 
 autocmd MyAutoCmd BufRead,BufEnter,BufNewFile *.contract setfiletype ruby

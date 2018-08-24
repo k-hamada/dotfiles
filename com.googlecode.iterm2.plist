@@ -612,9 +612,9 @@ Close</string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>712 552 620 392 0 0 2048 1129 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>474 491 796 473 0 0 2048 1129 </string>
+	<string>-1494 511 796 473 -1920 72 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 2048 1129 0 0 2048 1129 </string>
+	<string>-1920 75 1920 1054 -1920 72 1920 1057 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1334,7 +1334,7 @@ Close</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-12-01T06:48:27Z</date>
+	<date>2018-03-27T09:37:42Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
@@ -1345,6 +1345,8 @@ Close</string>
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>

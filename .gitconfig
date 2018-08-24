@@ -3,7 +3,8 @@
   email = k.hamada.1988@gmail.com
 
 [core]
-  editor = vim -c 'set fenc=utf-8'
+  editor = 'env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim'
+
   excludesfile = ~/.gitignore
   pager = less -r
   precomposeunicode = true
@@ -71,3 +72,8 @@
   prompt = false
   keepBackup = false
 
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

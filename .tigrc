@@ -36,11 +36,11 @@ bind log     n      :/^commit
 bind log     p      :?^commit
 
 # I で rebase -i
-bind main    I      ?git rebase -i %(branch)
-bind diff    I      ?git rebase -i %(branch)
-bind refs    I      ?git rebase -i %(branch)
-bind main    <Esc>i ?git rebase -i %(commit)
-bind diff    <Esc>i ?git rebase -i %(commit)
+bind main    I      ?git rebase -i %(branch) --autostash
+bind diff    I      ?git rebase -i %(branch) --autostash
+bind refs    I      ?git rebase -i %(branch) --autostash
+bind main    <Esc>i ?git rebase -i %(commit) --autostash
+bind diff    <Esc>i ?git rebase -i %(commit) --autostash
 
 # B で ブラウザで表示
 # http://www.yasuhisay.info/entry/2017/10/31/083000
