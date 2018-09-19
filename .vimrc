@@ -77,6 +77,7 @@ call dein#begin(s:plugin_dir)
   call dein#add('w0rp/ale')
   call dein#add('tpope/vim-sleuth')
   call dein#add('cocopon/iceberg.vim')
+  call dein#add('mechatroner/rainbow_csv')
 call dein#end()
 
 
@@ -304,12 +305,12 @@ endfunction
 
 
 " RTrim
-function! RTrim()
-  let s:cursor = getpos(".")
-  %s/\s\+$//e
-  call setpos(".", s:cursor)
-endfunction
-autocmd MyAutoCmd BufWritePre * call RTrim()
+" function! RTrim()
+"   let s:cursor = getpos(".")
+"   %s/\s\+$//e
+"   call setpos(".", s:cursor)
+" endfunction
+"autocmd MyAutoCmd BufWritePre * call RTrim()
 
 " Cursorline
 " <http://d.hatena.ne.jp/thinca/20090530/1243615055>
@@ -1240,14 +1241,6 @@ endif
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading
   set grepformat=%f:%l:%c:%m,%f:%l:%m
-
-  " Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
-  command! -bang -nargs=* Rg
-    \ call fzf#vim#grep(
-    \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-    \   <bang>0 ? fzf#vim#with_preview('up:60%')
-    \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-    \   <bang>0)
 endif
 
 autocmd MyAutoCmd BufRead,BufEnter,BufNewFile *.contract setfiletype ruby
