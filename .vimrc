@@ -25,6 +25,8 @@ call dein#begin(s:plugin_dir)
 
   call dein#add('/usr/local/opt/fzf')
   call dein#add('junegunn/fzf.vim')
+  " call dein#add('tweekmonster/fzf-filemru')
+  call dein#add('lvht/mru')
 
   call dein#add('Shougo/unite.vim')
   call dein#add('Shougo/neomru.vim',        {'depdens': ['unite.vim']})
@@ -78,6 +80,7 @@ call dein#begin(s:plugin_dir)
   call dein#add('tpope/vim-sleuth')
   call dein#add('cocopon/iceberg.vim')
   call dein#add('mechatroner/rainbow_csv')
+  call dein#add('airblade/vim-rooter')
 call dein#end()
 
 
@@ -100,7 +103,7 @@ if has('persistent_undo')
   let &undodir = s:dot_vim_dir . '/.undo' " TODO: path, mkdir
 endif
 set visualbell
-set viminfo='5,<1000,s100,:100,/10
+set viminfo='500,/100,:100,%,<100,s100,c,h
 
 " Edit
 set tabstop=2
@@ -118,6 +121,9 @@ set fileencodings=ucs-bom,utf-8,euc-jp,cp932,iso-2022-jp
 set incsearch
 set hlsearch
 
+if &history < 1000
+  set history=1000
+endif
 
 " Input
 if has('multi_byte_ime')
@@ -404,7 +410,7 @@ if dein#tap('neocomplete.vim')
 
   " Enable omni completion.
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType html,markdown,mkd setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
@@ -1161,8 +1167,8 @@ endif
 
 if dein#tap('vim-operator-user')
   map R <Plug>(operator-replace)
-  map S <Plug>(operator-sort)
-  map y <Plug>(operator-flashy)
+  nmap S <Plug>(operator-sort)
+  nmap y <Plug>(operator-flashy)
   nmap Y <Plug>(operator-flashy)$
 endif
 
@@ -1236,6 +1242,26 @@ if dein#tap('vim-anzu') && dein#tap('is.vim')
   nmap # <Plug>(anzu-sharp-with-echo)
   nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
   set statusline=%{anzu#search_status()}
+endif
+
+if dein#tap('fzf.vim')
+  " https://github.com/jonhoo/proximity-sort
+  function! s:list_cmd()
+    let base = fnamemodify(expand('%'), ':h:.:S')
+    return base == '.' ? 'fd -t f' : printf('fd -t f | proximity-sort %s', expand('%'))
+  endfunction
+
+  command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'source': s:list_cmd(),
+    \                               'options': '--tiebreak=index'}, <bang>0)
+endif
+
+if dein#tap('vim-markdown')
+  let g:vim_markdown_new_list_item_indent = 4
+endif
+
+if dein#tap('lvht/mru')
+  let g:mru_file_list_size = 100
 endif
 
 if executable("rg")
