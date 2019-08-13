@@ -11,6 +11,8 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/Library/Frameworks/Mono.framework/Versions/Current/bin:$PATH"
 export PATH="/Users/khamada/google-cloud-sdk/bin:$PATH"
 
+# source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+# PS1='$(kube_ps1)'$PS1
 
 if [ -x "`which go`" ]; then
     export GOPATH=$HOME/.go
@@ -18,9 +20,9 @@ if [ -x "`which go`" ]; then
 fi
 
 # eval $(/usr/libexec/path_helper -s)
-
-zplug 'supercrabtree/k', use:'!*'
+ENHANCD_FILTER=fzf
 zplug "b4b4r07/enhancd", use:'init.sh'
+zplug 'supercrabtree/k', use:'!*'
 zplug "mollifier/anyframe"
 zplug "marzocchi/zsh-notify"
 
@@ -117,8 +119,8 @@ bindkey '^g' anyframe-widget-checkout-git-branch
 zle -N do_enter
 bindkey '^m' do_enter
 
-export EDITOR='mvim -v'
-export VISUAL='mvim -v'
+export EDITOR='nvim -v'
+export VISUAL='nvim -v'
 
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
@@ -147,3 +149,6 @@ setopt hist_ignore_all_dups
 setopt hist_verify
 setopt hist_reduce_blanks
 
+export PATH="/usr/local/opt/avr-gcc@7/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
