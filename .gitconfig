@@ -19,6 +19,7 @@
   ci   = commit -v
   cia  = commit -av
   co   = checkout
+  coom = checkout origin/master
   cob  = checkout -b
   d    = diff
   f    = fetch
@@ -72,8 +73,11 @@
   prompt = false
   keepBackup = false
 
+[diff]
+  algorithm = "histogram"
+
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
