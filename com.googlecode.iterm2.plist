@@ -568,7 +568,7 @@ Close</string>
 	<key>NSFontPanelAttributes</key>
 	<string>1, 1</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Downloads</string>
+	<string>/Applications</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -610,11 +610,13 @@ Close</string>
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>540 430 882 273 0 0 2048 1129 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>712 552 620 392 0 0 2048 1129 </string>
+	<string>-1270 570 620 392 -1920 72 1920 1057 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>-1651 198 606 469 -1920 72 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>-1494 511 796 473 -1920 72 1920 1057 </string>
+	<string>-1494 545 796 486 -1920 72 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-1920 75 1920 1054 -1920 72 1920 1057 </string>
+	<string>0 48 2048 1081 0 0 2048 1129 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1243,7 +1245,7 @@ Close</string>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.19647679551632474</real>
+			<real>0.21571458104931968</real>
 			<key>Unicode Version</key>
 			<integer>8</integer>
 			<key>Unlimited Scrollback</key>
@@ -1334,7 +1336,7 @@ Close</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-03-27T09:37:42Z</date>
+	<date>2019-06-03T07:23:00Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
@@ -1350,6 +1352,6 @@ Close</string>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.5</string>
+	<string>3.2.9</string>
 </dict>
 </plist>
