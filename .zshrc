@@ -1,3 +1,7 @@
+source '/Users/khamada/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 source $HOME/.cargo/env
@@ -20,50 +24,46 @@ if [ -x "`which go`" ]; then
 fi
 
 # eval $(/usr/libexec/path_helper -s)
-ENHANCD_FILTER=fzf
-zplug "b4b4r07/enhancd", use:'init.sh'
-zplug 'supercrabtree/k', use:'!*'
-zplug "mollifier/anyframe"
-zplug "marzocchi/zsh-notify"
+zplugin ice wait'!0' pick"init.sh" atload"export ENHANCD_FILTER=fzf"
+zplugin light b4b4r07/enhancd
 
-zplug "modules/environment", from:prezto
-zplug "modules/utility", from:prezto
-zplug "modules/spectrum", from:prezto
-zplug "modules/terminal", from:prezto
-zplug "modules/history", from:prezto
-zplug "modules/git", from:prezto
-# zplug "modules/rails", from:prezto
-zplug "zsh-users/zsh-autosuggestions"
+# zplugin light sapercrabtree/k
+zplugin light mollifier/anyframe
+zplugin light marzocchi/zsh-notify
+
+zplugin ice svn pick"init.zsh"
+zplugin snippet PZT::modules/environment
+zplugin ice svn pick"init.zsh"
+zplugin snippet PZT::modules/utility
+zplugin ice svn pick"init.zsh"
+zplugin snippet PZT::modules/spectrum
+zplugin ice svn pick"init.zsh" atload"zstyle ':prezto:module:terminal' auto-title 'yes'"
+zplugin snippet PZT::modules/terminal
+zplugin ice svn pick"init.zsh"
+zplugin snippet PZT::modules/history
+zplugin ice svn pick"init.zsh"
+zplugin snippet PZT::modules/git
+
+zplugin light zsh-users/zsh-autosuggestions
+zplugin light zdharma/fast-syntax-highlighting
 
 GEOMETRY_SYMBOL_PROMPT="*'-'ﾉ"
 GEOMETRY_SYMBOL_EXIT_VALUE='*;-;ﾉ'
 GEOMETRY_SYMBOL_RPROMPT="< "
 PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
 GEOMETRY_PROMPT_PLUGINS=(git)
-zplug "frmendes/geometry", hook-load:"geometry_plugin_register datetime"
 
 # https://github.com/desyncr/geometry-datetime/blob/master/plugin.zsh
 GEOMETRY_PLUGIN_DATETIME_FORMAT="+%T"
 GEOMETRY_PLUGIN_DATETIME_PREFIX=":: "
 GEOMETRY_PLUGIN_DATETIME_SUFFIX=""
-geometry_prompt_datetime_setup() {
-}
+geometry_prompt_datetime_setup() { }
 geometry_prompt_datetime_render() {
   echo ${GEOMETRY_PLUGIN_DATETIME_PREFIX}$(date $GEOMETRY_PLUGIN_DATETIME_FORMAT)${GEOMETRY_PLUGIN_DATETIME_SUFFIX}
 }
 
-
-# if ! zplug check --verbose; then
-#   printf "Install? [y/N]: "
-#   if read -q; then
-#     echo; zplug install
-#   else
-#     echo
-#   fi
-# fi
-zplug load --verbose
-
-zstyle ':prezto:module:terminal' auto-title 'yes'
+zplugin ice atload"geometry_plugin_register datetime"
+zplugin light geometry-zsh/geometry
 
 # http://www.tellme.tokyo/entry/2016/12/20/110000
 do_enter() {
@@ -83,12 +83,6 @@ do_enter() {
     fi
 
     zle reset-prompt
-}
-
-k() {
-  unfunction k
-  . "${ZPLUG_REPOS}/supercrabtree/k/k.sh"
-  k "$@"
 }
 
 if [ $commands[kubectl] ]; then

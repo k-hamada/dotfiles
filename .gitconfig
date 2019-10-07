@@ -3,7 +3,8 @@
   email = k.hamada.1988@gmail.com
 
 [core]
-  editor = 'env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim'
+  ; editor = 'env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim'
+  editor = 'nvim'
 
   excludesfile = ~/.gitignore
   pager = less -r

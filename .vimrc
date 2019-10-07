@@ -350,10 +350,10 @@ augroup vimrc-auto-cursorline
 augroup END
 
 
-augroup PluginInstall
-    autocmd!
-    autocmd VimEnter * if dein#check_install() | call dein#install() | endif
-augroup END
+" augroup PluginInstall
+"     autocmd!
+"     autocmd VimEnter * if dein#check_install() | call dein#install() | endif
+" augroup END
 
 augroup ThemeInstall
     autocmd!
