@@ -1,0 +1,6 @@
+{
+  "suggest.noselect": false,
+  "rust-analyzer.diagnostics.enableExperimental": false,
+  "rust-analyzer.lens.methodReferences": true,
+  "rust-analyzer.checkOnSave.command": "clippy"
+}  
